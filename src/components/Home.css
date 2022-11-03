@@ -1,0 +1,10 @@
+.nav{
+  height: 100vw;
+  display: flex;
+  width: 100vw;
+  background-image: url("../../public/img3.png");
+   background-repeat: no-repeat;
+    font-family: "Sofia", sans-serif;
+    /* background-size: contain; */
+}
+
