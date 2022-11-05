@@ -1,20 +1,17 @@
 import React from "react";
 
 function Cart(props) {
-  console.log("MyShoppingCart");
-  let things = props.cart.map((d, i) => {
+  let selections = props.cart.map((d, i) => {
     return (
       <li key={i} onClick={() => props.handleClick(d)}>
-        {d.name} - ${d.price}
-        <br></br>
-        {d.description}
+        {d.strDrink}
       </li>
     );
   });
   return (
     <div className="MyShoppingCart">
-      <h2>Your Cart!</h2>
-      {things}
+      <h2>Your selection</h2>
+      {selections}
     </div>
   );
 }
