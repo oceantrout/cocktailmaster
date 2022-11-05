@@ -2,8 +2,7 @@ import "./App.css";
 import Home from "./components/Home";
 import ResultsIngre from "./components/ResultsIngre";
 import ResultsName from "./components/ResultsName";
-import SearchIngre from "./components/SearchIngre";
-import SearchName from "./components/ResultsName";
+import Search from "./components/Search";
 import Cart from "./components/cart";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -58,7 +57,11 @@ function App() {
       <Route path="/SearchbyIngre">
         <div className="IngrePage">
           <h2>Select by Ingredients</h2>
-          <SearchIngre handleSubmit={handleSubmit} ingreData={ingreData} />
+          <Search
+            handleSubmit={handleSubmit}
+            ingreData={ingreData}
+            placeholder={"Enter ingredients,e.g.,Gin or Vodka"}
+          />
           <div className="arrange">
             <Cart className="cart" cart={cart} handleClick={handleRemove} />
             <ResultsIngre handleClick={handleAdd} drinkData={ingreData} />

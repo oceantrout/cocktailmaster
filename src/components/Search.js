@@ -14,11 +14,7 @@ function Search(props) {
   return (
     <div className="Search">
       <form onSubmit={handleSubmit}>
-        <input
-          ref={inputRef1}
-          type="text"
-          placeholder="Enter ingredients,e.g.,Gin or Vodka"
-        />
+        <input ref={inputRef1} type="text" placeholder={props.placeholder} />
         <div>Press "Submit" for Query</div>
         <input type="submit" />
       </form>
