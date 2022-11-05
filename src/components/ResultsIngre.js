@@ -1,9 +1,9 @@
 import "./ResultsIngre.css";
 import React from "react";
 function ResultsIngre(props) {
-  const drinks = props.drinkData.map((item, index) => {
+  let drinks = props.drinkData.map((item, index) => {
     return (
-      <div className="Ingre">
+      <div className="ingre">
         <img
           key={index}
           alt="display"
@@ -15,7 +15,7 @@ function ResultsIngre(props) {
     );
   });
 
-  return <>{drinks}</>;
+  return <div>{drinks}</div>;
 }
 
 export default ResultsIngre;

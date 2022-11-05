@@ -3,3 +3,27 @@
   font-family: "Sofia", sans-serif;
   background-color: black;
 color:white}
+
+.IngrePage {
+  text-align: left;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: beige;
+  color: black;
+  padding-left: 10%;
+  width:100%;
+  display: inline-block
+}
+
+h2{
+text-align: center}
+
+.cart{
+    width: 300px;
+    border: solid;
+    border-color: grey;
+}
+
+
+.arrange{
+  display: flex
+}

@@ -1,17 +1,19 @@
 import React from "react";
+import ListGroup from "react-bootstrap/ListGroup";
+import "./cart.css";
 
 function Cart(props) {
   let selections = props.cart.map((d, i) => {
     return (
-      <li key={i} onClick={() => props.handleClick(d)}>
+      <ListGroup.Item key={i} onClick={() => props.handleClick(d)}>
         {d.strDrink}
-      </li>
+      </ListGroup.Item>
     );
   });
   return (
-    <div className="MyShoppingCart">
-      <h2>Your selection</h2>
-      {selections}
+    <div className="cart">
+      <h5>Your selection is here</h5>
+      <ListGroup>{selections}</ListGroup>
     </div>
   );
 }

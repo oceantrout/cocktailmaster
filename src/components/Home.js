@@ -24,8 +24,8 @@ function Home() {
         />
         <Card.Body>
           <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            You can find your ideal cocktail by searching for different type of
+            ingreidents, such as Gin, VodKa or fruits like Grapes, oranges
           </Card.Text>
           <Link to="/SearchbyIngre">
             <Button variant="primary" size="lg">
@@ -52,8 +52,8 @@ function Home() {
         />
         <Card.Body>
           <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            You can find your ideal cocktail by searching the name you already
+            know, such as Magarita, Singapore Sling, Long Island
           </Card.Text>
           <Link to="/SeachbyName">
             <Button variant="primary" size="lg">

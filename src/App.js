@@ -19,14 +19,14 @@ function App() {
     const makeApiCall = async () => {
       let res = await fetch(drinkUrl);
       let data = await res.json();
-      setIngreData(data);
-      console.log(data);
+      setIngreData(data.drinks);
+      console.log("API is successful", data.drinks);
     };
     makeApiCall();
   }, [ingreName]);
   const handleSubmit = (ingreName) => {
     setIngre(ingreName);
-    console.log("App - handleSubmit - drink", ingreName);
+    console.log("App - handleSubmit is successful", ingreName);
   };
 
   const cartReducer = (state, action) => {
@@ -35,7 +35,7 @@ function App() {
         return [...state, action.item];
       case "Remove":
         console.log(action, state);
-        return [...state.filter((p) => p.name !== action.item.name)];
+        return [...state.filter((p) => p.strDrink !== action.item.strDrink)];
     }
   };
   const [cart, dispatch] = useReducer(cartReducer, []);
@@ -50,16 +50,20 @@ function App() {
 
   return (
     <div className="App">
-      <h1>- - - - -Cocktail Master- - - - -</h1>
-      <h5>a site for the connoisseur</h5>
-
       <Route exact path="/">
+        <h1>- - - - -Cocktail Master- - - - -</h1>
+        <h5>a site for cocktail connoisseur</h5>
         <Home />
       </Route>
       <Route path="/SearchbyIngre">
-        <SearchIngre handleSubmit={handleSubmit} ingreData={ingreData} />
-        <ResultsIngre handleClick={handleAdd} drinkData={ingreData} />
-        <Cart cart={cart} handleClick={handleRemove} />
+        <div className="IngrePage">
+          <h2>Select by Ingredients</h2>
+          <SearchIngre handleSubmit={handleSubmit} ingreData={ingreData} />
+          <div className="arrange">
+            <Cart className="cart" cart={cart} handleClick={handleRemove} />
+            <ResultsIngre handleClick={handleAdd} drinkData={ingreData} />
+          </div>
+        </div>
       </Route>
       <Route path="/SearchbyName">
         {/* <SearchName />

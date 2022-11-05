@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import "./Search.css";
 
 import "./Search.css";
 function Search(props) {
@@ -18,7 +19,7 @@ function Search(props) {
           type="text"
           placeholder="Enter ingredients,e.g.,Gin or Vodka"
         />
-        <div></div>
+        <div>Press "Submit" for Query</div>
         <input type="submit" />
       </form>
     </div>
