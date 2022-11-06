@@ -1,15 +1,13 @@
 import React, { useRef, useState } from "react";
 import "./Search.css";
-
-import "./Search.css";
 function Search(props) {
-  const [ingreName, setIngre] = useState("");
+  const [drinkName, setDrink] = useState("");
   const inputRef1 = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     props.handleSubmit(inputRef1.current.value);
-    console.log("Search - handleSubmit - drink", ingreName);
+    console.log("Search - handleSubmit - drink", drinkName);
   };
   return (
     <div className="Search">

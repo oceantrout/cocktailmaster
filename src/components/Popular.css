@@ -1,0 +1,48 @@
+.popular {
+    display: flex;
+    border: solid;
+    border-color: green;
+    padding: 2px;
+    margin: 0.5em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: small;
+}
+
+
+.popular:hover {
+    background-color: lightblue;
+    border-color: red
+}
+
+.name {
+    background-color: beige;
+    min-width: 200px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 0.5em
+}
+
+.instruction{
+    background-color:blanchedalmond;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: fill;
+    padding: 1em
+}
+
+h2 {
+    text-align: center;
+        font-family: "Sofia", sans-serif;
+        background-color: black;
+        color: white;
+        padding: 0.5em;
+        margin: 0
+    }
+
+    span{
+        font-size:medium
+    }
+
+    .nobullet{
+        list-style-type: none;
+        padding-left: 0.1em
+    }

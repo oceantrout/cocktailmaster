@@ -24,12 +24,12 @@ function Home() {
         />
         <Card.Body>
           <Card.Text>
-            You can find your ideal cocktail by searching for different type of
-            ingreidents, such as Gin, VodKa or fruits like Grapes, oranges
+            You can find what are on top of people's mind for cocktail, what are
+            the most common cocktail people consumed
           </Card.Text>
-          <Link to="/SearchbyIngre">
+          <Link to="/Popular">
             <Button variant="primary" size="lg">
-              Search by Ingredients
+              Top 25 popular cocktail
             </Button>
           </Link>{" "}
         </Card.Body>
@@ -55,7 +55,7 @@ function Home() {
             You can find your ideal cocktail by searching the name you already
             know, such as Magarita, Singapore Sling, Long Island
           </Card.Text>
-          <Link to="/SeachbyName">
+          <Link to="/Search">
             <Button variant="primary" size="lg">
               Search by Name
             </Button>

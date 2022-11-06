@@ -1,31 +1,39 @@
 import "./App.css";
 import Home from "./components/Home";
-import ResultsIngre from "./components/ResultsIngre";
-import ResultsName from "./components/ResultsName";
+import Results from "./components/Results";
 import Search from "./components/Search";
 import Cart from "./components/cart";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import Popular from "./components/Popular";
 import React from "react";
-import { Route, Link } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 import { useState, useEffect, useReducer } from "react";
 
 function App() {
-  const [ingreName, setIngre] = useState("");
-  const [ingreData, setIngreData] = useState([]);
+  const [drinkName, setDrink] = useState("jkafjakfads");
+  const [drinkData, setDrinkData] = useState([]);
   useEffect(() => {
-    const drinkUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingreName}`;
+    setDrinkData([]);
+  }, []);
+
+  useEffect(() => {
+    const drinkUrl = `https://www.thecocktaildb.com/api/json/v2/9973533/Search.php?s=${drinkName}`;
     const makeApiCall = async () => {
       let res = await fetch(drinkUrl);
       let data = await res.json();
-      setIngreData(data.drinks);
-      console.log("API is successful", data.drinks);
+      if (data.drinks === "None Found") {
+        setDrinkData([]);
+      } else {
+        setDrinkData(data.drinks);
+      }
+      console.log("API1 is successful", data.drinks);
     };
     makeApiCall();
-  }, [ingreName]);
-  const handleSubmit = (ingreName) => {
-    setIngre(ingreName);
-    console.log("App - handleSubmit is successful", ingreName);
+  }, [drinkName]);
+
+  const handleSubmit = (drinkName) => {
+    setDrink(drinkName);
+    console.log("App1 - handleSubmit is successful", drinkName);
   };
 
   const cartReducer = (state, action) => {
@@ -48,32 +56,40 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <Switch>
       <Route exact path="/">
-        <h1>- - - - -Cocktail Master- - - - -</h1>
-        <h5>a site for cocktail connoisseur</h5>
-        <Home />
+        <div className="App">
+          <h1>- - - - -Cocktail Master- - - - -</h1>
+          <h5>a site for cocktail connoisseur</h5>
+          <Home />
+        </div>
       </Route>
-      <Route path="/SearchbyIngre">
+      <Route path="/Popular">
+        <Popular />
+      </Route>
+      <Route path="/Search">
         <div className="IngrePage">
           <h2>Select by Ingredients</h2>
+          <nav>
+            <Link to="/">
+              <button>Home Page</button>
+            </Link>
+            <Link to="/Popular">
+              <button>Top 20 drinks</button>
+            </Link>
+          </nav>
           <Search
             handleSubmit={handleSubmit}
-            ingreData={ingreData}
-            placeholder={"Enter ingredients,e.g.,Gin or Vodka"}
+            drinkData={drinkData}
+            placeholder={"Enter names,e.g.,Magarita or Vodka"}
           />
           <div className="arrange">
             <Cart className="cart" cart={cart} handleClick={handleRemove} />
-            <ResultsIngre handleClick={handleAdd} drinkData={ingreData} />
+            <Results handleClick={handleAdd} drinkData={drinkData} />
           </div>
         </div>
       </Route>
-      <Route path="/SearchbyName">
-        {/* <SearchName />
-        <ResultsName />
-        <Cart /> */}
-      </Route>
-    </div>
+    </Switch>
   );
 }
 

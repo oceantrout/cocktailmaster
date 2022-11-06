@@ -1,8 +1,9 @@
 .cart {
     min-width: 300px;
     border: solid;
+    padding:0.5em;
     border-color: grey;
-    margin-left:0;
+    margin-left: 0.5em;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     /* background-image: url("//ingre.png") */
 }
