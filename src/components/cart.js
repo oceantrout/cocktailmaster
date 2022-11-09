@@ -6,7 +6,11 @@ import Form from "react-bootstrap/Form";
 function Cart(props) {
   let selections = props.cart.map((d, i) => {
     return (
-      <ListGroup.Item key={i} onClick={() => props.handleClick(d)}>
+      <ListGroup.Item
+        variant="warning"
+        key={i}
+        onClick={() => props.handleClick(d)}
+      >
         {d.strDrink}
       </ListGroup.Item>
     );
@@ -14,9 +18,15 @@ function Cart(props) {
 
   return (
     <div className="cart">
-      <h5>Your selection is here</h5>
-      <ListGroup>{selections}</ListGroup>
-
+      <Button
+        variant="warning"
+        size="sm"
+        style={{ textalign: "center", marginLeft: "3em", marginBottom: "2em" }}
+      >
+        Your selection is here
+      </Button>
+      <ListGroup>{selections}</ListGroup> <br></br>
+      <br></br>
       <Form>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Email address</Form.Label>
@@ -30,7 +40,7 @@ function Cart(props) {
             ))} */}
           </Form.Control>
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="warning" type="submit" size="sm">
           Submit
         </Button>
       </Form>
