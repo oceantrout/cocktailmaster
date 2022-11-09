@@ -29,7 +29,7 @@ function Home() {
           </Card.Text>
           <Link to="/Popular">
             <Button variant="primary" size="lg">
-              Top 25 popular cocktail
+              Top 20 popular cocktail
             </Button>
           </Link>{" "}
         </Card.Body>
